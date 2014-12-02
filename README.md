@@ -2,4 +2,4 @@
 
     $ fay Hello.hs --html-wrapper
 
-    $ fay Hello.hs --html-wrapper
+    $ open Hello.html
