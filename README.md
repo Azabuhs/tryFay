@@ -2,6 +2,6 @@
 
     $ cabal install fay fay-base fay-text fay-jquery
 
-    $ fay Hello.hs --html-wrapper
+    $ fay --package fay-jquery,fay-text Main.hs
 
-    $ open Hello.html
+    $ open main.html
