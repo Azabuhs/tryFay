@@ -4,17 +4,25 @@ import Fay.Text (fromString)
 import JQuery
 import Prelude
 
-(>=>>) :: (a -> Fay b) -> (b -> Fay c) -> a -> Fay c
-f >=>> g = \x -> f x >>= g
-
 makeSquare :: JQuery -> Fay JQuery
-makeSquare = addClass "square" >=>>
-             setWidth 400 >=>>
+makeSquare = setWidth  400 >=>
              setHeight 400
 
--- `ready` is the same as jQuery(document).ready(%1);
--- You generally need to wait for this event to fire before modifying the DOM.
+makeBlack :: JQuery -> Fay JQuery
+makeBlack = setCss "background-color" "black"
+
+
+makeHide :: JQuery -> Fay JQuery
+makeHide = hide Slow
+
+makeHide :: JQuery -> Fay JQuery
+makeHide = hide Slow
+
+on "d"
+
 main :: Fay ()
 main = ready $ do
-       select "#ToMakeSquare" >>= makeSquare
+       select "#test" >>= makeSquare
+       select "#test" >>= makeBlack
+       select "#test" >>= makeHide
        return ()
